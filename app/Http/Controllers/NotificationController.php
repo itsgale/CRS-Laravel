@@ -23,7 +23,7 @@ class NotificationController extends Controller
     public function store(Request $request)
     {
         // Only admins can create notifications
-        if (Auth::user()->role !== 'admin') {
+        if (Auth::user()->role_id != 1) {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
 

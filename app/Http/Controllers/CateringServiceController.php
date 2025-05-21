@@ -18,21 +18,23 @@ class CateringServiceController extends Controller
     // POST /catering-services - Create a new catering service (admin only)
     public function store(Request $request)
     {
-        if (Auth::user()->role !== 'admin') {
-            return response()->json(['error' => 'Unauthorized'], 403);
-        }
-
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'available' => 'boolean',
-        ]);
-
-        $service = CateringService::create($validated);
-
-        return response()->json(['message' => 'Catering service created', 'data' => $service], 201);
+    if (Auth::user()->role_id != 1) {
+        return response()->json(['error' => 'Unauthorized'], 403);
     }
+
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'price' => 'required|numeric|min:0',
+        'category' => 'required|string|max:255', // Add this line to make category required
+        'available' => 'boolean',
+    ]);
+
+    $service = CateringService::create($validated);
+
+    return response()->json(['message' => 'Catering service created', 'data' => $service], 201);
+    }
+
 
     // GET /catering-services/{id} - Show specific catering service details
     public function show($id)

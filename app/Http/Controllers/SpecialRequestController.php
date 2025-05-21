@@ -13,7 +13,7 @@ class SpecialRequestController extends Controller
     {
         $validated = $request->validate([
             'reservation_id' => 'required|exists:reservations,id',
-            'request_details' => 'required|string|max:1000',
+            'request_detail' => 'required|string|max:1000',
         ]);
 
         // Only allow user to submit for their own reservation
@@ -28,7 +28,7 @@ class SpecialRequestController extends Controller
 
         $specialRequest = SpecialRequest::create([
             'reservation_id' => $validated['reservation_id'],
-            'request_details' => $validated['request_details'],
+            'request_detail' => $validated['request_detail'],
             'status' => 'pending',
         ]);
 

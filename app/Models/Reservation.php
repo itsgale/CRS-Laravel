@@ -14,8 +14,8 @@ class Reservation extends Model
         'user_id',
         'catering_service_id',
         'reservation_date',
-        'event_time',
-        'event_location',
+        'reservation_time',
+        'location',
         'guest_count',
         'status', // e.g., pending, confirmed, cancelled
     ];

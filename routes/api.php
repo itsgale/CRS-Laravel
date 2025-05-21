@@ -31,29 +31,37 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::delete('/delete-user/{id}', [UserController::class, 'deleteUser']);
 
    // Reservation routes
-    Route::get('/reservations', [ReservationController::class, 'index']);
-    Route::post('/reservations', [ReservationController::class, 'store']);
-    Route::get('/reservations/{id}', [ReservationController::class, 'show']);
-    Route::put('/reservations/{id}', [ReservationController::class, 'update']);
-    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy']);
+    Route::get('/get-reservations', [ReservationController::class, 'index']);
+    Route::post('/add-reservation', [ReservationController::class, 'store']);
+    Route::get('/get-reservation/{id}', [ReservationController::class, 'show']);
+    Route::put('/edit-reservation/{id}', [ReservationController::class, 'update']);
+    Route::delete('/delete-reservation/{id}', [ReservationController::class, 'destroy']);
 
     // Catering Service routes
-    Route::get('/catering-services', [CateringServiceController::class, 'index']);
-    Route::post('/catering-services', [CateringServiceController::class, 'store']);
-    Route::put('/catering-services/{id}', [CateringServiceController::class, 'update']);
-    Route::delete('/catering-services/{id}', [CateringServiceController::class, 'destroy']);
+    Route::get('/get-catering-services', [CateringServiceController::class, 'index']);
+    Route::post('/add-catering-service', [CateringServiceController::class, 'store']);
+    Route::put('/edit-catering-service/{id}', [CateringServiceController::class, 'update']);
+    Route::delete('/delete-catering-service/{id}', [CateringServiceController::class, 'destroy']);
 
-    // Payment routes
-    Route::post('/payments', [PaymentController::class, 'store']);
-    Route::get('/payments/{reservation_id}', [PaymentController::class, 'showByReservation']);
+        // Payments
+    Route::post('/add-payment', [PaymentController::class, 'store']);
+    Route::get('/get-payments/{reservation_id}', [PaymentController::class, 'showByReservation']);
+    Route::put('/edit-payment/{id}', [PaymentController::class, 'update']);
+    Route::delete('/delete-payment/{id}', [PaymentController::class, 'destroy']);
 
     // Special Requests
-    Route::post('/special-requests', [SpecialRequestController::class, 'store']);
-    Route::get('/special-requests/{reservation_id}', [SpecialRequestController::class, 'showByReservation']);
+    Route::post('/add-special-request', [SpecialRequestController::class, 'store']);
+    Route::get('/get-special-requests/{reservation_id}', [SpecialRequestController::class, 'showByReservation']);
+    Route::put('/edit-special-request/{id}', [SpecialRequestController::class, 'update']);
+    Route::delete('/delete-special-request/{id}', [SpecialRequestController::class, 'destroy']);
 
     // Notifications
-    Route::get('/notifications', [NotificationController::class, 'index']);
-    Route::put('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+    Route::post('/add-notification', [NotificationController::class, 'store']);
+    Route::get('/get-notifications', [NotificationController::class, 'index']);
+    Route::put('/edit-notification/{id}/read', [NotificationController::class, 'markAsRead']);
+    Route::put('/edit-notification/{id}', [NotificationController::class, 'update']); // Add update route
+    Route::delete('/delete-notification/{id}', [NotificationController::class, 'destroy']);
+
     
     Route::post('/logout', [AuthenticationController::class, 'logout']);
 });

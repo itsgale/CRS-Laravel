@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2025 at 08:23 PM
+-- Generation Time: May 21, 2025 at 07:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,6 +37,15 @@ CREATE TABLE `catering_services` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `catering_services`
+--
+
+INSERT INTO `catering_services` (`id`, `name`, `description`, `price`, `category`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Premium Buffet Package', 'Includes 3 appetizers, 5 main dishes, 2 desserts, and drinks', 499.99, NULL, 'available', '2025-05-21 08:45:35', '2025-05-21 08:45:35'),
+(2, 'Premium Buffet Package', 'Includes 3 appetizers, 5 main dishes, 2 desserts, and drinks', 499.99, NULL, 'available', '2025-05-21 08:48:34', '2025-05-21 08:48:34'),
+(3, 'Premium Buffet Package', 'Includes 3 appetizers, 5 main dishes, 2 desserts, and drinks', 499.99, 'Buffet Package', 'available', '2025-05-21 09:23:30', '2025-05-21 09:23:30');
 
 -- --------------------------------------------------------
 
@@ -100,6 +109,14 @@ CREATE TABLE `notifications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `user_id`, `title`, `message`, `type`, `is_read`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Reservation Confirmed', 'Your reservation for May 25 has been confirmed.', 'info', 0, '2025-05-21 09:15:00', '2025-05-21 09:15:00'),
+(2, 1, 'Reservation Confirmed', 'Your reservation for May 25 has been confirmed.', 'info', 0, '2025-05-21 09:42:31', '2025-05-21 09:42:31');
+
 -- --------------------------------------------------------
 
 --
@@ -129,6 +146,14 @@ CREATE TABLE `payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `reservation_id`, `amount`, `payment_method`, `payment_status`, `payment_date`, `created_at`, `updated_at`) VALUES
+(1, 1, 9999.99, 'GCash', 'pending', '2025-05-21', '2025-05-21 09:06:42', '2025-05-21 09:06:42'),
+(2, 1, 9999.99, 'GCash', 'pending', '2025-05-21', '2025-05-21 09:42:10', '2025-05-21 09:42:10');
+
 -- --------------------------------------------------------
 
 --
@@ -147,6 +172,14 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 2, 'auth_token', '1dd4c7026d2939a27988d6d151991899b000869ebd133074a04f98d22a2973d4', '[\"*\"]', '2025-05-20 18:06:55', NULL, '2025-05-20 17:45:02', '2025-05-20 18:06:55'),
+(6, 'App\\Models\\User', 1, 'auth_token', '643b52ffc46c7f20f12d1c16567b3f0d56c4bf5f2e8f1c0b25fd786198a5422b', '[\"*\"]', '2025-05-21 09:42:31', NULL, '2025-05-21 08:30:20', '2025-05-21 09:42:31');
 
 -- --------------------------------------------------------
 
@@ -167,6 +200,13 @@ CREATE TABLE `reservations` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `user_id`, `catering_service_id`, `reservation_date`, `reservation_time`, `guest_count`, `location`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2025-06-20', '18:30:00', 100, 'Grand Hall, Sunset Avenue, Metro City', 'pending', '2025-05-21 08:48:56', '2025-05-21 08:48:56');
+
 -- --------------------------------------------------------
 
 --
@@ -185,9 +225,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '2025-05-19 08:34:05', '2025-05-19 08:34:05'),
-(2, 'Staff', '2025-05-19 08:34:05', '2025-05-19 08:34:05'),
-(3, 'Customer', '2025-05-19 08:34:05', '2025-05-19 08:34:05');
+(1, 'Admin', '2025-05-20 17:43:41', '2025-05-20 17:43:41'),
+(2, 'Staff', '2025-05-20 17:43:41', '2025-05-20 17:43:41'),
+(3, 'Customer', '2025-05-20 17:43:41', '2025-05-20 17:43:41');
 
 -- --------------------------------------------------------
 
@@ -203,6 +243,14 @@ CREATE TABLE `special_requests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `special_requests`
+--
+
+INSERT INTO `special_requests` (`id`, `reservation_id`, `request_detail`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Requesting a vegetarian menu for 5 guests.', 'pending', '2025-05-21 09:03:52', '2025-05-21 09:03:52'),
+(2, 1, 'Requesting a vegetarian menu for 5 guests.', 'pending', '2025-05-21 09:42:20', '2025-05-21 09:42:20');
 
 -- --------------------------------------------------------
 
@@ -230,7 +278,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `user_status_id`, `first_name`, `middle_name`, `last_name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Admin', NULL, 'Admin', 'admin@gmail.com', NULL, '$2y$10$Qu.0/6fexPVXLTNI0Wyax.qaNSLH4/e4Z54S5ezBOGhcZ1KueQqi6', NULL, '2025-05-19 08:34:06', '2025-05-19 08:34:06');
+(1, 1, 1, 'Admin', NULL, 'Admin', 'admin@gmail.com', NULL, '$2y$10$wflYtDaMnvA02RP6nXzvYe.sE07LBX0YaQS9uUTALPuG5WfRGKH3C', NULL, '2025-05-20 17:43:42', '2025-05-20 17:43:42'),
+(2, 3, 1, 'Johannes', 'Espina', 'Tolentino', 'mcetolentino0911@gmail.com', NULL, '$2y$10$OEKD4Z8tp2VFU16Pcm67nO7JmCNv./GhQyi4M1bohezMpo.0HHRGm', NULL, '2025-05-20 17:44:55', '2025-05-20 17:44:55'),
+(3, 1, 1, 'Johannes', 'Espina', 'Tolentino', 'test0911@gmail.com', NULL, '$2y$10$qs2nDdCrYuAl0IHJOyN.U.TXI/A9wDdYzE7f1crGV2qwNple4K91e', NULL, '2025-05-21 08:01:28', '2025-05-21 08:01:28'),
+(4, 1, 1, 'Johannes', 'Espina', 'Tolentino', 'admin0911@gmail.com', NULL, '$2y$10$vrn6O0lyB.aN1YvB2.GC.OsE2cxiUnPItR1oeh38DkSzfLEWpAwku', NULL, '2025-05-21 08:31:27', '2025-05-21 08:31:27');
 
 -- --------------------------------------------------------
 
@@ -250,8 +301,8 @@ CREATE TABLE `user_statuses` (
 --
 
 INSERT INTO `user_statuses` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Active', '2025-05-19 08:34:05', '2025-05-19 08:34:05'),
-(2, 'Inactive', '2025-05-19 08:34:05', '2025-05-19 08:34:05');
+(1, 'Active', '2025-05-20 17:43:41', '2025-05-20 17:43:41'),
+(2, 'Inactive', '2025-05-20 17:43:41', '2025-05-20 17:43:41');
 
 --
 -- Indexes for dumped tables
@@ -348,7 +399,7 @@ ALTER TABLE `user_statuses`
 -- AUTO_INCREMENT for table `catering_services`
 --
 ALTER TABLE `catering_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -366,25 +417,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -396,13 +447,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `special_requests`
 --
 ALTER TABLE `special_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_statuses`

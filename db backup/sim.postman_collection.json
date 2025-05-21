@@ -57,7 +57,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"mcetolentino0911@gmail.com\",\r\n    \"password\": \"qweqweqwe\"\r\n}",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -86,7 +86,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{:authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -126,7 +126,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{:authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -161,7 +161,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{:authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -176,7 +176,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Johannes\",\r\n    \"middle_name\": \"Espina\",\r\n    \"last_name\": \"Tolentino\",\r\n    \"email\": \"test0911@gmail.com\",\r\n    \"password\": \"qweqweqwe\",\r\n    \"role_id\": 1,\r\n    \"user_status_id\": 1\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Johannes\",\r\n    \"middle_name\": \"Espina\",\r\n    \"last_name\": \"Tolentino\",\r\n    \"email\": \"admin0911@gmail.com\",\r\n    \"password\": \"qweqweqwe\",\r\n    \"role_id\": 1,\r\n    \"user_status_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -289,7 +289,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{:authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -324,7 +324,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{:authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -339,7 +339,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"user_id\": 1,\r\n  \"catering_service_id\": 2,\r\n  \"event_date\": \"2025-06-20\",\r\n  \"event_time\": \"18:30:00\",\r\n  \"number_of_guests\": 100,\r\n  \"location\": \"Grand Hall, Sunset Avenue, Metro City\",\r\n  \"special_requests\": \"Vegetarian meals for 10 guests\",\r\n  \"status\": \"pending\"\r\n}",
+							"raw": "{\r\n  \"user_id\": 1,\r\n  \"catering_service_id\": 1,\r\n  \"reservation_date\": \"2025-06-20\",\r\n  \"reservation_time\": \"18:30:00\",\r\n  \"guest_count\": 100,\r\n  \"location\": \"Grand Hall, Sunset Avenue, Metro City\",\r\n  \"special_requests\": \"Vegetarian meals for 10 guests\",\r\n  \"status\": \"pending\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -452,7 +452,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{:authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -487,7 +487,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -502,7 +502,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Premium Buffet Package\",\r\n  \"description\": \"Includes 3 appetizers, 5 main dishes, 2 desserts, and drinks\",\r\n  \"price_per_head\": 499.99,\r\n  \"max_guests\": 150,\r\n  \"status\": \"available\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Premium Buffet Package\",\r\n  \"description\": \"Includes 3 appetizers, 5 main dishes, 2 desserts, and drinks\",\r\n  \"price\": 499.99,\r\n  \"category\": \"Buffet Package\",\r\n  \"status\": \"available\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -615,7 +615,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -629,14 +629,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/get-payments/",
+							"raw": "{{baseUrl}}/api/get-payments/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"get-payments",
-								""
+								"1"
 							]
 						}
 					},
@@ -650,7 +650,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -778,7 +778,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -792,14 +792,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/get-speciial-requests/",
+							"raw": "{{baseUrl}}/api/get-special-requests/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"get-speciial-requests",
-								""
+								"get-special-requests",
+								"1"
 							]
 						}
 					},
@@ -813,7 +813,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -828,7 +828,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"reservation_id\": 1,\r\n  \"request_details\": \"Requesting a vegetarian menu for 5 guests.\",\r\n  \"status\": \"pending\"\r\n}",
+							"raw": "{\r\n  \"reservation_id\": 1,\r\n  \"request_detail\": \"Requesting a vegetarian menu for 5 guests.\",\r\n  \"status\": \"pending\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -836,13 +836,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/add-speciial-request/",
+							"raw": "{{baseUrl}}/api/add-special-request/",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"add-speciial-request",
+								"add-special-request",
 								""
 							]
 						}
@@ -941,7 +941,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
@@ -976,7 +976,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{vault:authorization-secret}}",
+									"value": "{{authorization-secret}}",
 									"type": "string"
 								}
 							]
